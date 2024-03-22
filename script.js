@@ -1,27 +1,35 @@
 const html = document.querySelector('html');
-const listaBotones = document.querySelectorAll('.app__card-button');
 const botonEnfoque = document.querySelector('.app__card-button--enfoque');
 const botonCorto = document.querySelector('.app__card-button--corto');
 const botonLargo = document.querySelector('.app__card-button--largo');
 const banner = document.querySelector('.app__image');
 const titulo = document.querySelector('.app__title');
-const tituloNegro = document.querySelector('.app__title-strong');
+const listaBotones = document.querySelectorAll('.app__card-button');
 
 botonEnfoque.addEventListener('click', () => {
     cambiarContexto('enfoque');
-    cambiarTitulo(`asddsaividad,<br>`,'gola');
+    botonEnfoque.classList.add('active')
 });
 
 botonCorto.addEventListener('click', () => {
     cambiarContexto('descanso-corto');
+    botonCorto.classList.add('active');
+
 });
 
 botonLargo.addEventListener('click', () => {
     cambiarContexto('descanso-largo');
+    botonLargo.classList.add('active');
+
 });
 
 
 function cambiarContexto(contexto) {
+
+    listaBotones.forEach(function(contexto){
+        contexto.classList.remove('active')
+    })
+
     html.setAttribute('data-contexto', contexto);
     banner.setAttribute('src', `/imagenes/${contexto}.png`);
 
