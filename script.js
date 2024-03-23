@@ -129,4 +129,4 @@ const tiempoFormateado = tiempo.toLocaleTimeString('es-MX', {minute: '2-digit', 
     timer.innerHTML = `${tiempoFormateado}`;
 }
 
-mostrarTiempo();
+mostrarTiempo(); 
