@@ -11,8 +11,10 @@ const botonIniciarPausar = document.querySelector('#start-pause')
 const play = new Audio ('./sonidos/play.wav')
 const pause = new Audio ('./sonidos/pause.mp3')
 const beep = new Audio ('./sonidos/beep.mp3')
+const textoIniciarPausar = document.querySelector('#start-pause span')
+const imgIniciarPausar = document.querySelector('.app__card-primary-butto-icon')
 
-let tiempoTranscurridoEnSegundos = 10;
+let tiempoTranscurridoEnSegundos = 15;
 let idIntervalo = null
 
 musica.loop = true;
@@ -85,6 +87,8 @@ const cuentaRegresiva = () => {
         alert('Tiempo Final');
         return;
     }
+    imgIniciarPausar.setAttribute('src','./imagenes/pause.png')
+    textoIniciarPausar.textContent = 'Pausar'
     tiempoTranscurridoEnSegundos -= 1;
     console.log(tiempoTranscurridoEnSegundos);
 }
@@ -94,8 +98,8 @@ botonIniciarPausar.addEventListener('click', inciarPausar);
 
 function inciarPausar () {
     if (idIntervalo) {
-        reiniciar();
         pause.play();
+        reiniciar();
         return;
         
     }
@@ -106,4 +110,6 @@ function inciarPausar () {
 function reiniciar () {
     clearInterval(idIntervalo)
     idIntervalo = null
+    imgIniciarPausar.setAttribute('src','./imagenes/play_arrow.png')
+    textoIniciarPausar.textContent = 'Comenzar'
 }
