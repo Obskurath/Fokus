@@ -61,7 +61,7 @@ function cambiarContexto(contexto) {
     })
 
     html.setAttribute('data-contexto', contexto);
-    banner.setAttribute('src', `imagenes/${contexto}.png`);
+    banner.setAttribute('src', `/imagenes/${contexto}.png`);
 
     switch (contexto) {
         case 'enfoque':
@@ -96,7 +96,7 @@ const cuentaRegresiva = () => {
         alert('Tiempo Final');
         return;
     }
-    imgIniciarPausar.setAttribute('src','imagenes/pause.png');
+    imgIniciarPausar.setAttribute('src','/imagenes/pause.png');
     textoIniciarPausar.textContent = 'Pausar';
     tiempoTranscurridoEnSegundos -= 1;
     mostrarTiempo();
@@ -119,7 +119,7 @@ function inciarPausar () {
 function reiniciar () {
     clearInterval(idIntervalo);
     idIntervalo = null;
-    imgIniciarPausar.setAttribute('src','imagenes/play_arrow.png');
+    imgIniciarPausar.setAttribute('src','/imagenes/play_arrow.png');
     textoIniciarPausar.textContent = 'Comenzar';
 }
 
